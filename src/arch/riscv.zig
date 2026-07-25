@@ -1,7 +1,9 @@
+const csr = @import("csr.zig");
+
 pub inline fn delay(cycles: usize) void {
     var i: usize = 0;
 
     while (i < cycles) : (i += 1) {
-        asm volatile ("nop");
+        csr.nop();
     }
 }
